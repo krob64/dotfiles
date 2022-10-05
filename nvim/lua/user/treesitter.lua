@@ -19,3 +19,12 @@ configs.setup {
     -- termcolors = {} -- table of colour name strings
   },
 }
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.glimmer = {
+  filetype = "hbs",
+  used_by = {
+    "handlebars",
+    "html.handlebars"
+  }
+}

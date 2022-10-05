@@ -3,7 +3,7 @@ return {
   filetypes = {"go", "gomod"},
   settings = {
     gopls = {
-      matcher = "Fuzzy",
+      matcher = "CaseInsensitive",
     },
   },
 }
