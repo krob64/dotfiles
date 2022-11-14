@@ -59,7 +59,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- completion plugin
   use "saadparwaiz1/cmp_luasnip" -- completion plugin
   use "hrsh7th/cmp-nvim-lsp"
-
   -- snippets
   use "L3MON4D3/LuaSnip" -- snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -71,7 +70,9 @@ return packer.startup(function(use)
   -- themes
   use "sainnhe/gruvbox-material"
   use "folke/tokyonight.nvim"
-  use {"catppuccin/nvim", as = "catppuccin"}
+  use "navarasu/onedark.nvim"
+  use "rebelot/kanagawa.nvim"
+  -- use {"catppuccin/nvim", as = "catppuccin"}
   -- require("catppuccin").setup()
   -- use({
   --   'NTBBloodbath/doom-one.nvim',
@@ -115,7 +116,13 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = "TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"
+  --use "p00f/nvim-ts-rainbow" --treesitter plugin to make parentheses more distinguishable
+  
+  --lualine
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true}
+  }
 
 -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
