@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/kroben/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  everforest = {
+    loaded = true,
+    path = "/home/kroben/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/kroben/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -213,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kroben/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/kroben/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 

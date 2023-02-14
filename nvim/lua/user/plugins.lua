@@ -72,6 +72,7 @@ return packer.startup(function(use)
   use "folke/tokyonight.nvim"
   use "navarasu/onedark.nvim"
   use "rebelot/kanagawa.nvim"
+  use "sainnhe/everforest"
   -- use {"catppuccin/nvim", as = "catppuccin"}
   -- require("catppuccin").setup()
   -- use({
@@ -123,6 +124,9 @@ return packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true}
   }
+
+  --zenmode
+  use "folke/zen-mode.nvim"
 
 -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

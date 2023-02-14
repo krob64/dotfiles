@@ -75,3 +75,6 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- bufferline
 keymap("n", "<leader>w", ":Bdelete<cr>", opts)
+
+--zenmode
+keymap("n", "<leader>z", ":ZenMode<cr>", opts)

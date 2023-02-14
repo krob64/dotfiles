@@ -1,4 +1,4 @@
-vim.cmd "colorscheme kanagawa"
+vim.cmd "colorscheme everforest"
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
