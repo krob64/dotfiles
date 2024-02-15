@@ -17,10 +17,6 @@ return {
     config = function()
         local lsp = require("lsp-zero")
         lsp.preset("recommended")
-        lsp.ensure_installed({
-            'clangd',
-            'pyright',
-        })
 
         lsp.on_attach(function(client, bufnr)
             require("lsp-format").on_attach(client, bufnr)
@@ -50,6 +46,22 @@ return {
         lsp.set_preferences({
             sign_icons = {}
         })
+
+        lsp.configure('gdscript', {
+            force_setup = true,
+            single_file_support = false,
+            cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
+            root_dir = require('lspconfig.util').root_pattern('project.godot', '.git'),
+            filetypes = {'gd', 'gdscript', 'gdscript3'}
+        })
+
+        require('mason').setup({})
+        require('mason-lspconfig').setup({
+            ensure_installed = {'clangd'},
+            handlers = {
+                lsp.default_setup,
+            },
+        })
         lsp.setup()
         vim.diagnostic.config { virtual_text = true }
 
@@ -61,7 +73,7 @@ return {
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
-                ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
@@ -90,7 +102,7 @@ return {
                 }),
             }),
             completion = {
-                completeopt = 'menu,menuone,noselect',
+                --completeopt = 'menu,menuone,noselect',
             },
             preselect = cmp.PreselectMode.None,
         })

@@ -35,7 +35,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec --no-startup-id ~/.config/scripts/checkdisplays.sh
-exec --no-startup-id redshift &
+exec --no-startup-id redshift -l 51.16:10.45 -t 6500:3700
+exec --no-startup-id feh --bg-fill --randomize ~/Pictures/wallpapers/*
+exec --no-startup-id xrandr --newmode "1280x960_240.00"  476.10  1280 1392 1536 1792  960 961 964 1107  +HSync +Vsync
+exec --no-startup-id xrandr --addmode DP-4 "1280x960_240.00"
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -44,11 +48,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -137,8 +144,8 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # previous/next workspace
-bindsym $mod+m workspace next
-bindsym $mod+n workspace prev
+bindsym $mod+comma workspace next
+bindsym $mod+m workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1

@@ -21,9 +21,16 @@ vim.keymap.set("n", "<leader>d", "\"_d", { desc = "delete into void register" })
 vim.keymap.set("v", "<leader>d", "\"_d", { desc = "delete into void register" })
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessoinizer<CR>", { desc = "new tmux session" })
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "new tmux session" })
 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, { desc = "manually format" })
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "rename word under cursor in current file" })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "make file executable" })
+
+vim.keymap.set("v", "<", "<gv", {desc = "indent selection left"})
+vim.keymap.set("v", ">", ">gv", {desc = "indent selection right"})
+
+vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", {silent = true, desc = "toggle zenmode"})
+vim.keymap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", {silent = true, desc = "comment current line"})
+vim.keymap.set("v", "<leader>/", "<Plug>(comment_toggle_linewise_visual)", {silent = true, desc = "comment multiline"})
